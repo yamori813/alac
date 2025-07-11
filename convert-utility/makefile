@@ -2,7 +2,7 @@
 
 CFLAGS = -g -O3 -c
 LFLAGS = -Wall -L$(CODECDIR) -lalac
-CC = g++
+CC = c++
 
 SRCDIR = .
 CODECDIR = ../codec

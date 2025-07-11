@@ -2,7 +2,7 @@
 
 CFLAGS = -g -O3 -c
 LFLAGS = -Wall
-CC = g++
+CC = c++
 
 SRCDIR = .
 OBJDIR = ./obj
