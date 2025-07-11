@@ -1,0 +1,5 @@
+*.o
+codec/libalac.a
+convert-utility/alacconvert
+player/cafplay
+player/m4aplay
