@@ -26,6 +26,7 @@ typedef struct {
 typedef void (*sample_cb_t)(int offset, int len);
 
 struct alac_codec_s *alac;
+int samplerate;
 out123_handle *out;
 
 char filename[64];
@@ -109,7 +110,8 @@ void check_m4a_file()
             printf("only support m4a file, not found mp4a type\n");
             exit(1);
         }
-	alac = alac_create(len - 32, pos + 32);
+        alac = alac_create(len - 32, pos + 32);
+        samplerate = alac_getsamplerate(alac);
     }
     else
     {
@@ -256,7 +258,7 @@ void copy_raw_to_es()
 {
     out = out123_new();
     out123_open(out, NULL, NULL);
-    out123_start(out, 44100, 2, MPG123_ENC_SIGNED_16);
+    out123_start(out, samplerate, 2, MPG123_ENC_SIGNED_16);
     iterate_samples_from_stsc(es_cb);
 }
 

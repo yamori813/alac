@@ -30,6 +30,7 @@ struct alac_codec_s *alac_create(int, unsigned char *);
 void alac_delete(struct alac_codec_s *);
 int alac_decode(struct alac_codec_s *, unsigned char*, int, unsigned char *,
     int, char, unsigned *);
+int alac_getsamplerate(struct alac_codec_s *);
 
 #ifdef __cplusplus
 }

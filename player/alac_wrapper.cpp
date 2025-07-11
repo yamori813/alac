@@ -53,3 +53,7 @@ extern "C" int alac_decode(struct alac_codec_s *codec, unsigned char* input,
 	return codec->Decoder->Decode(&input_buffer, output, frames_per_packet, channels, out_frames) == ALAC_noErr;
 }
 
+/*----------------------------------------------------------------------------*/
+extern "C" int alac_getsamplerate(struct alac_codec_s *codec) {
+	return codec->Decoder->mConfig.sampleRate;
+}
