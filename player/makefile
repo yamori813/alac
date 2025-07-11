@@ -22,5 +22,5 @@ alac_wrapper.o : alac_wrapper.cpp
 	$(C++) $(INCLUDES) $(CFLAGS) alac_wrapper.cpp
 
 clean:
-	-rm $(OBJS) cafplay m4aplay
+	-rm $(OBJS) cafplay m4aplay *.o
 
