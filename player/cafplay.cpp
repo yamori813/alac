@@ -449,7 +449,7 @@ int32_t DecodeALAC(FILE * inputFile, out123_handle *out, AudioFormatDescription 
         outputDataSizePos = ftell(outputFile) - sizeof(uint32_t);
     }
 #endif
-    out123_start(out, 44100, 2, MPG123_ENC_SIGNED_16);
+    out123_start(out, theInputFormat.mSampleRate, 2, MPG123_ENC_SIGNED_16);
 
     // We do have to get the packet size from the packet table
     FindCAFFPacketTableStart(inputFile, &packetTablePos, &thePacketTableSize);
