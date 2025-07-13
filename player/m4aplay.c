@@ -248,7 +248,7 @@ void iterate_samples_from_stsc(sample_cb_t sample_cb)
 
 void es_cb(int offset, int len)
 {
-    char buff[1024*256];
+    char buff[4096*4];
     int outsize;
     alac_decode(alac, m4a_buf + offset, len, buff, 4096, 2, &outsize);
     out123_play(out, buff, outsize * 4);
