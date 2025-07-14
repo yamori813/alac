@@ -10,6 +10,8 @@
 
 #include <out123.h>
 
+#include "ALACAudioTypes.h"
+#include "EndianPortable.h"
 #include "alac_wrapper.h"
 
 #define BUF_LEN 10240000
@@ -112,6 +114,16 @@ void check_m4a_file()
         }
         alac = alac_create(len - 32, pos + 32);
         samplerate = alac_getsamplerate(alac);
+        ALACSpecificConfig *conf = (ALACSpecificConfig *)(pos + 32 + 12);
+        printf("frameLength %d\n", Swap32BtoN(conf->frameLength));
+        printf("compatibleVersion %d\n", conf->compatibleVersion);
+        printf("bitDepth %d\n", conf->bitDepth);
+        printf("pb %d, mb %d, kb %d\n", conf->pb, conf->mb, conf->kb);
+        printf("numChannels %d\n", conf->numChannels);
+        printf("maxRun %d\n", Swap16BtoN(conf->maxRun));
+        printf("maxFrameBytes %d\n", Swap32BtoN(conf->maxFrameBytes));
+        printf("avgBitRate %d\n", Swap32BtoN(conf->avgBitRate));
+        printf("sampleRate %d\n", Swap32BtoN(conf->sampleRate));
     }
     else
     {
